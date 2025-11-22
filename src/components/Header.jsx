@@ -11,14 +11,24 @@ export default function Header() {
   const isActive = (path) => location.pathname === path; // Check if the path is active
 
   return (
-    <header className="bg-white shadow-sm">
-      <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-4">
-        <Link to="/" className="font-bold text-lg flex items-center gap-2">
-          <img src="/src/assets/logo.svg" className="w-8" />
+    <header className="bg-gradient-to-r from-indigo-50 to-indigo-100 shadow-md">
+      <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+        <Link
+          to="/"
+          className="font-bold text-xl flex items-center gap-3 text-indigo-800"
+        >
+          <img
+            src="/src/assets/logo.svg"
+            className="w-10"
+            alt="HealthTracker Logo"
+          />
           HealthTracker
         </Link>
 
-        <button className="md:hidden p-2" onClick={() => setOpen(!open)}>
+        <button
+          className="md:hidden p-2 text-indigo-800"
+          onClick={() => setOpen(!open)}
+        >
           ☰
         </button>
 
@@ -26,21 +36,29 @@ export default function Header() {
           <Link
             to="/dashboard"
             className={
-              isActive("/dashboard") ? "text-indigo-600 font-bold" : ""
+              isActive("/dashboard")
+                ? "text-indigo-600 font-bold underline"
+                : "text-gray-700 hover:text-indigo-600"
             }
           >
             Dashboard
           </Link>
           <Link
             to="/goals"
-            className={isActive("/goals") ? "text-indigo-600 font-bold" : ""}
+            className={
+              isActive("/goals")
+                ? "text-indigo-600 font-bold underline"
+                : "text-gray-700 hover:text-indigo-600"
+            }
           >
             Goals
           </Link>
           <Link
             to="/reminders"
             className={
-              isActive("/reminders") ? "text-indigo-600 font-bold" : ""
+              isActive("/reminders")
+                ? "text-indigo-600 font-bold underline"
+                : "text-gray-700 hover:text-indigo-600"
             }
           >
             Reminders
@@ -48,7 +66,9 @@ export default function Header() {
           <Link
             to="/health-tips"
             className={
-              isActive("/health-tips") ? "text-indigo-600 font-bold" : ""
+              isActive("/health-tips")
+                ? "text-indigo-600 font-bold underline"
+                : "text-gray-700 hover:text-indigo-600"
             }
           >
             Tips
@@ -56,7 +76,7 @@ export default function Header() {
 
           {user && (
             <button
-              className="bg-indigo-600 text-white px-3 py-1 rounded"
+              className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700"
               onClick={() => {
                 logout();
                 navigate("/login");
@@ -69,12 +89,12 @@ export default function Header() {
       </div>
 
       {open && (
-        <div className="md:hidden px-4 py-4 space-y-3 bg-white shadow">
+        <div className="md:hidden px-6 py-4 space-y-4 bg-indigo-50 shadow">
           <Link
             className={
               isActive("/dashboard")
-                ? "block text-indigo-600 font-bold"
-                : "block"
+                ? "block text-indigo-600 font-bold underline"
+                : "block text-gray-700 hover:text-indigo-600"
             }
             to="/dashboard"
           >
@@ -82,7 +102,9 @@ export default function Header() {
           </Link>
           <Link
             className={
-              isActive("/goals") ? "block text-indigo-600 font-bold" : "block"
+              isActive("/goals")
+                ? "block text-indigo-600 font-bold underline"
+                : "block text-gray-700 hover:text-indigo-600"
             }
             to="/goals"
           >
@@ -91,8 +113,8 @@ export default function Header() {
           <Link
             className={
               isActive("/reminders")
-                ? "block text-indigo-600 font-bold"
-                : "block"
+                ? "block text-indigo-600 font-bold underline"
+                : "block text-gray-700 hover:text-indigo-600"
             }
             to="/reminders"
           >
@@ -101,8 +123,8 @@ export default function Header() {
           <Link
             className={
               isActive("/health-tips")
-                ? "block text-indigo-600 font-bold"
-                : "block"
+                ? "block text-indigo-600 font-bold underline"
+                : "block text-gray-700 hover:text-indigo-600"
             }
             to="/health-tips"
           >
@@ -111,7 +133,7 @@ export default function Header() {
 
           {user && (
             <button
-              className="w-full bg-indigo-600 text-white py-2 rounded"
+              className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700"
               onClick={() => {
                 logout();
                 navigate("/login");
