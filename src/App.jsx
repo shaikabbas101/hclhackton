@@ -1,11 +1,10 @@
-import "./App.css";
+import React from "react";
+import PublicRoutes from "./routes/PublicRoutes";
 
-function App() {
+export default function App() {
   return (
-    <div>
-      <h1 className="text-4xl font-bold text-blue-500">Tailwind Test</h1>
+    <div className="min-h-screen">
+      <PublicRoutes />
     </div>
   );
 }
-
-export default App;
