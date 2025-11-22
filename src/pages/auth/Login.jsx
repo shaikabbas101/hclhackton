@@ -12,8 +12,9 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const res = await api.post("/auth/login", { email, password });
-      saveToken(res.data.token);
+      // const res = await api.post("/auth/login", { email, password });
+      // saveToken(res.data.token);
+      saveToken("jsgdjgj");
       nav("/dashboard");
     } catch (err) {
       alert("Login failed (backend not connected)");
